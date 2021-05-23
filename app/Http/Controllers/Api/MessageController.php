@@ -8,6 +8,7 @@ use Swift_SmtpTransport;
 use Swift_Attachment;
 use Swift_Mailer;
 use Swift_Message;
+use App\Models\User;
 use Illuminate\Support\Facades\Mail;
 
 class MessageController extends Controller
@@ -21,7 +22,8 @@ class MessageController extends Controller
         $mailer    = new Swift_Mailer($transport);
         $message   = (new Swift_Message($request->subject))
             ->setFrom('wahidfkiri5@gmail.com', 'wahid fkiri')
-            ->setTo($email->email);
+            ->setTo($email->email)
+            ->setBody($request->message);
            //  ->addcc($cc)
            //  ->setReadReceiptTo($return_receipt)
           //   ->addReplyTo($reply_to);     
