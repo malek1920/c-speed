@@ -53,4 +53,12 @@ class BureauComptableController extends Controller
             'message' => 'Bureau comptable deleted',
         ]);
     }
+    public function getById(Request $request)
+    {
+        $bureau = Bureau_comptable::find($request->id);
+        return response()->json([
+            'success' => true,
+            'Bureau comptable' => $bureau,
+        ]);
+    }
 }

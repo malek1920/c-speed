@@ -7,6 +7,7 @@ use App\Http\Controllers\Api\BilanController;
 use App\Http\Controllers\Api\MvComptableController;
 use App\Http\Controllers\Api\FolderComptableController;
 use App\Http\Controllers\Api\BureauComptableController;
+use App\Http\Controllers\Api\MessageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -53,9 +54,13 @@ Route::get('bureau-comptable',[App\Http\Controllers\Api\BureauComptableControlle
 Route::post('bureau-comptable/create',[App\Http\Controllers\Api\BureauComptableController::class, 'create']);
 Route::post('bureau-comptable/update',[App\Http\Controllers\Api\BureauComptableController::class, 'update']);
 Route::post('bureau-comptable/delete',[App\Http\Controllers\Api\BureauComptableController::class, 'delete']);
+Route::get('get-bureau',[App\Http\Controllers\Api\BureauComptableController::class, 'getById']);
 
 // User
 Route::get('/get-user',[App\Http\Controllers\Api\UserController::class, 'getUserById']);
 Route::get('/liste-user',[App\Http\Controllers\Api\UserController::class, 'listeUser']);
 Route::post('/update-user',[App\Http\Controllers\Api\UserController::class, 'updateUser']);
 Route::post('/delete-user',[App\Http\Controllers\Api\UserController::class, 'deleteUser']);
+
+// Email 
+Route::post('send-email',[App\Http\Controllers\Api\MessageController::class, 'sendMessage']);
