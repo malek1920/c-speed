@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
+use App\Models\Compte;
 class UserController extends Controller
 {
     function index(Request $request)
@@ -35,16 +36,6 @@ class UserController extends Controller
 
     public function register(Request $request)
     {
-        // $validatedData = $request->validate([
-        // 'name' => 'required|string|max:255',
-        // 'email' => 'required|string|email|max:255|unique:users',
-        // 'password' => 'required|string|min:8',
-        // 'offre' => 'required|string|min:8',
-        // 'adress' => 'required|string',
-        // 'phone' => 'required|string',
-        // 'role' => 'required|string',
-        // 'c_id' => 'required|string',
-        // ]);
 
       $user = User::create([
          'name' => $request->name,
@@ -72,92 +63,53 @@ class UserController extends Controller
             'user' => User::all(), 
         ]);
     }
-
-    public function parametreCompte(Request $request)
-    { 
-        $user = User::find($request->id); 
+    public function listeCompte(Request $request)
+    {
+        $comptes = Compte::all();
+        return response()->json([
+            'success' => true,
+            'comptes' => $comptes, 
+        ]);
+    }
+    public function getUserById(Request $request)
+    {
+        $user = User::find($request->id);
+        return response()->json([
+            'success' => true,
+            'user' => $user, 
+        ]);
+    }
+    public function listeUser(Request $request)
+    {
+        $users = User::where('role',2)->get();
+        return response()->json([
+            'success' => true,
+            'users' => $users, 
+        ]);
+    }
+    public function updateUser(Request $request)
+    {
+        $user = User::find($request->id);
         $user->name = $request->name; 
         $user->email = $request->email;
         $user->password = Hash::make($request->password);
-        $user->tel = $request->tel;
-        $user->adresse = $request->adresse;
+        $user->phone = $request->phone;
+        $user->adress = $request->adress;
         $user->save(); 
  
         return response()->json([
             'success' => true,
             'user' => $user, 
+            'message' => 'User updated',
         ]);
     }
-
-    public function userById(Request $request)
-    { 
-        
-       $user = User::find($request->id);  
-        return response()->json([
-            'success' => true,
-            'user' => $user, 
-        ]);
-    }
-
-    public function changeEtat(Request $request)
+    public function deleteUser(Request $request)
     {
-        $validatedData = $request->validate([
-        'id' => 'required',
-        'etat' => 'required|string', 
-        ]);
-        $user = User::find($validatedData['id']);
-        $user->etat = $validatedData['etat'];
-        $user->save(); 
- 
+        $user = User::find($request->id);
+        $user->delete();
         return response()->json([
             'success' => true,
-            'user' => $user, 
-        ]);
-    }
-
-    
-    public function checkIfUserConducteur(Request $request)
-    {
-        $validatedData = $request->validate([
-        'id' => 'required',  
-        ]);
-        $id=$validatedData['id']; 
-
-        $users = DB::table('users')
-            ->join('conducteurs', 'users.conducteur_id', '=', 'conducteurs.id') 
-            ->select('users.*', 'conducteurs.*')
-            ->where("users.id",$id)
-            ->where("users.role","3")
-            ->get()->count();
-
- 
-        return response()->json([
-            'success' => true,
-            'user' => $users, 
-        ]);
-    }
-
-    public function addInfoUserConducteur(Request $request){
-    
-        $validatedData = $request->validate([
-            'id' => 'required',
-            'numPermis' => 'required|string|max:255|unique:conducteurs',
-            'dateLivraison' => 'required|string|min:8',
-            'dateFinValidite' => 'required|string|min:8'
-            ]);
-
-        $conducteurs = Conducteurs::create([
-            'numPermis' =>  $validatedData['numPermis'],
-            'dateLivraison' => $validatedData['dateLivraison'], 
-            'dateFinValidite' => $validatedData['dateFinValidite'] 
-        ]);
-         
-        $user = User::find($validatedData['id']);
-        $user->conducteur_id = $conducteurs->id;
-        $user->save();
-        return response()->json([
-            'success' => true,
-            'user' => $conducteurs, 
+            'message' => 'User deleted',
         ]);
     }
 }
