@@ -54,7 +54,7 @@ Route::get('bureau-comptable',[App\Http\Controllers\Api\BureauComptableControlle
 Route::post('bureau-comptable/create',[App\Http\Controllers\Api\BureauComptableController::class, 'create']);
 Route::post('bureau-comptable/update',[App\Http\Controllers\Api\BureauComptableController::class, 'update']);
 Route::post('bureau-comptable/delete',[App\Http\Controllers\Api\BureauComptableController::class, 'delete']);
-Route::get('get-bureau',[App\Http\Controllers\Api\BureauComptableController::class, 'getById']);
+Route::post('get-bureau',[App\Http\Controllers\Api\BureauComptableController::class, 'getById']);
 
 // User
 Route::get('/get-user',[App\Http\Controllers\Api\UserController::class, 'getUserById']);

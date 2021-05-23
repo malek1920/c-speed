@@ -42,6 +42,7 @@ class MvComptableController extends Controller
             $mv_comptable->libelle = $request->libelle;
             $mv_comptable->m_debit = $request->m_debit;
             $mv_comptable->m_credit = $request->m_credit;
+            $mv_comptable->save();
             return response()->json([
                 'success' => true,
                 'Movement Comptable' => $mv_comptable,

@@ -44,6 +44,7 @@ class BilanController extends Controller
         $bilan->passif = $request->passif;
         $bilan->m_actif = $request->m_actif;
         $bilan->m_passif = $request->m_passif;
+        $bilan->save();
         return response()->json([
             'success' => true,
             'bilan' => $bilan,

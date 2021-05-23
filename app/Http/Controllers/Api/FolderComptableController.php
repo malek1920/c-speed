@@ -36,6 +36,7 @@ class FolderComptableController extends Controller
             $f_comptable->num_f = $request->num_f;
             $f_comptable->name = $request->name;
             $f_comptable->user_id = $request->user_id;
+            $f_comptable->save();
             return response()->json([
                 'success' => true,
                 'Movement Comptable' => $f_comptable,

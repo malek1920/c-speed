@@ -38,6 +38,7 @@ class BureauComptableController extends Controller
         $bureaux->phone = $request->phone;
         $bureaux->adress = $request->adress;
         $bureaux->user_id = $request->user_id;
+        $bureaux->save();
         return response()->json([
             'success' => true,
             'Bureau comptable' => $bureaux,
