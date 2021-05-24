@@ -21,6 +21,7 @@ class MvComptableController extends Controller
         $mv_comptable = Mv_comptable::create([
             'user_id' => $request->user_id,
             'f_id' => $request->f_id,
+            'mv_comp_global' => $request->mv_comp_global,
             'code' => $request->code,
             'libelle' => $request->libelle,
             'm_debit' => $request->	m_debit,
@@ -38,6 +39,7 @@ class MvComptableController extends Controller
             $mv_comptable = Mv_comptable::find($request->id);
             $mv_comptable->user_id = $request->user_id;
             $mv_comptable->f_id = $request->f_id;
+            $mv_comptable->mv_comp_global = $request->mv_comp_global;
             $mv_comptable->code = $request->code;
             $mv_comptable->libelle = $request->libelle;
             $mv_comptable->m_debit = $request->m_debit;
@@ -64,6 +66,14 @@ class MvComptableController extends Controller
         return response()->json([
             'success' => true,
             'mv_comptable' => $mv_comptable,
+        ]);
+    }
+    public function getMvComptable(Request $request)
+    {
+        $mv_global = Mv_comptable::where('mv_comp_global',$request->id)->first();
+        return response()->json([
+            'success' => true,
+            'mv_global' => $mv_global,
         ]);
     }
 }

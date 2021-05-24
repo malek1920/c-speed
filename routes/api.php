@@ -8,6 +8,8 @@ use App\Http\Controllers\Api\MvComptableController;
 use App\Http\Controllers\Api\FolderComptableController;
 use App\Http\Controllers\Api\BureauComptableController;
 use App\Http\Controllers\Api\MessageController;
+use App\Http\Controllers\Api\MvCompGlobalController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -39,6 +41,18 @@ Route::post('mv-comptable/create',[App\Http\Controllers\Api\MvComptableControlle
 Route::post('mv-comptable/update',[App\Http\Controllers\Api\MvComptableController::class, 'update']);
 Route::post('mv-comptable/delete',[App\Http\Controllers\Api\MvComptableController::class, 'delete']);
 Route::post('get-mv-comptable',[App\Http\Controllers\Api\MvComptableController::class, 'getById']);
+Route::post('get-mv-comptable-global',[App\Http\Controllers\Api\MvComptableController::class, 'getMvComptable']);
+
+
+
+// Mv Comptable
+Route::get('mv-comptable-global',[App\Http\Controllers\Api\MvCompGlobalController::class, 'index']);
+Route::post('mv-comptable-global/create',[App\Http\Controllers\Api\MvCompGlobalController::class, 'create']);
+Route::post('mv-comptable-global/update',[App\Http\Controllers\Api\MvCompGlobalController::class, 'update']);
+Route::post('mv-comptable-global/delete',[App\Http\Controllers\Api\MvCompGlobalController::class, 'delete']);
+Route::post('get-mv-comptable-global',[App\Http\Controllers\Api\MvCompGlobalController::class, 'getById']);
+
+
 
 // Folder Comptable
 Route::get('folder-comptable',[App\Http\Controllers\Api\FolderComptableController::class, 'index']);
