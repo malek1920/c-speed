@@ -60,4 +60,12 @@ class BilanController extends Controller
             'message' => 'Bilan deleted',
         ]);
     }
+    public function getById(Request $request)
+    {
+        $bilan = Bilan::find($request->id);
+        return response()->json([
+            'success' => true,
+            'bilan' => $bilan,
+        ]);
+    }
 }

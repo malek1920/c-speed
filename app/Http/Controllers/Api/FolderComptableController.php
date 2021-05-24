@@ -52,4 +52,12 @@ class FolderComptableController extends Controller
             'message' => 'Folder Comptable deleted',
         ]);
     }
+    public function getById(Request $request)
+    {
+        $f_comptable = Folder_comptable::find($request->id);
+        return response()->json([
+            'success' => true,
+            'Folder_comptable' => $f_comptable,
+        ]);
+    }
 }

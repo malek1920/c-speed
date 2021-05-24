@@ -31,23 +31,26 @@ Route::get('bilan',[App\Http\Controllers\Api\BilanController::class, 'index']);
 Route::post('bilan/create',[App\Http\Controllers\Api\BilanController::class, 'create']);
 Route::post('bilan/update',[App\Http\Controllers\Api\BilanController::class, 'update']);
 Route::post('bilan/delete',[App\Http\Controllers\Api\BilanController::class, 'delete']);
-
+Route::post('get-bilan',[App\Http\Controllers\Api\BilanController::class, 'getById']);
 
 // Mv Comptable
 Route::get('mv-comptable',[App\Http\Controllers\Api\MvComptableController::class, 'index']);
 Route::post('mv-comptable/create',[App\Http\Controllers\Api\MvComptableController::class, 'create']);
 Route::post('mv-comptable/update',[App\Http\Controllers\Api\MvComptableController::class, 'update']);
 Route::post('mv-comptable/delete',[App\Http\Controllers\Api\MvComptableController::class, 'delete']);
-
+Route::post('get-mv-comptable',[App\Http\Controllers\Api\MvComptableController::class, 'getById']);
 
 // Folder Comptable
 Route::get('folder-comptable',[App\Http\Controllers\Api\FolderComptableController::class, 'index']);
 Route::post('folder-comptable/create',[App\Http\Controllers\Api\FolderComptableController::class, 'create']);
 Route::post('folder-comptable/update',[App\Http\Controllers\Api\FolderComptableController::class, 'update']);
 Route::post('folder-comptable/delete',[App\Http\Controllers\Api\FolderComptableController::class, 'delete']);
+Route::post('get-folder',[App\Http\Controllers\Api\FolderComptableController::class, 'getById']);
 
 // Compte
 Route::get('/liste-compte',[App\Http\Controllers\Api\UserController::class, 'listeCompte']);
+Route::post('get-compte',[App\Http\Controllers\Api\UserController::class, 'getById']);
+
 
 // Bureau Comptable
 Route::get('bureau-comptable',[App\Http\Controllers\Api\BureauComptableController::class, 'index']);

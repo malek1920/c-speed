@@ -58,4 +58,12 @@ class MvComptableController extends Controller
             'message' => 'Mv Comptable deleted',
         ]);
     }
+    public function getById(Request $request)
+    {
+        $mv_comptable = Mv_comptable::find($request->id);
+        return response()->json([
+            'success' => true,
+            'mv_comptable' => $mv_comptable,
+        ]);
+    }
 }

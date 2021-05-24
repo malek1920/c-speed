@@ -71,6 +71,14 @@ class UserController extends Controller
             'comptes' => $comptes, 
         ]);
     }
+    public function getById(Request $request)
+    {
+        $compte = Compte::find($request->id);
+        return response()->json([
+            'success' => true,
+            'compte' => $compte,
+        ]);
+    }
     public function getUserById(Request $request)
     {
         $user = User::find($request->id);
