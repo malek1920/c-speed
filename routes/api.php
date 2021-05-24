@@ -74,10 +74,11 @@ Route::post('bureau-comptable/delete',[App\Http\Controllers\Api\BureauComptableC
 Route::post('get-bureau',[App\Http\Controllers\Api\BureauComptableController::class, 'getById']);
 
 // User
-Route::get('/get-user',[App\Http\Controllers\Api\UserController::class, 'getUserById']);
+Route::post('/get-user',[App\Http\Controllers\Api\UserController::class, 'getUserById']);
 Route::get('/liste-user',[App\Http\Controllers\Api\UserController::class, 'listeUser']);
 Route::post('/update-user',[App\Http\Controllers\Api\UserController::class, 'updateUser']);
 Route::post('/delete-user',[App\Http\Controllers\Api\UserController::class, 'deleteUser']);
+Route::get('/liste-client',[App\Http\Controllers\Api\UserController::class, 'listeClient']);
 
 // Email 
 Route::post('send-email',[App\Http\Controllers\Api\MessageController::class, 'sendMessage']);

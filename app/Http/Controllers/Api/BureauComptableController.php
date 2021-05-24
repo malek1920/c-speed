@@ -42,6 +42,7 @@ class BureauComptableController extends Controller
         return response()->json([
             'success' => true,
             'Bureau comptable' => $bureaux,
+            'id' => $request->id,
             'message' => 'Bureau comptable updated',
         ]);
     }
@@ -62,4 +63,12 @@ class BureauComptableController extends Controller
             'Bureau comptable' => $bureau,
         ]);
     }
+    public function listeClient(Request $request)
++    {
++        $users = User::where('role',0)->get();
++        return response()->json([
++            'success' => true,
++            'users' => $users, 
++        ]);
++    }
 }
