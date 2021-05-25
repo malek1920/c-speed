@@ -41,7 +41,7 @@ Route::post('mv-comptable/create',[App\Http\Controllers\Api\MvComptableControlle
 Route::post('mv-comptable/update',[App\Http\Controllers\Api\MvComptableController::class, 'update']);
 Route::post('mv-comptable/delete',[App\Http\Controllers\Api\MvComptableController::class, 'delete']);
 Route::post('get-mv-comptable',[App\Http\Controllers\Api\MvComptableController::class, 'getById']);
-Route::post('get-mv-comptable-global',[App\Http\Controllers\Api\MvComptableController::class, 'getMvComptable']);
+Route::post('get-mv-comptable-by-parent',[App\Http\Controllers\Api\MvComptableController::class, 'getMvComptable']);
 
 
 

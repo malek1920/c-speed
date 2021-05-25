@@ -13,6 +13,6 @@ class Movement_comptable_global extends Model
         'f_id',
         'code',
         'libelle',
-        'm_credit_global',
+        'm_credit_total',
     ];
 }

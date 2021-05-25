@@ -23,7 +23,7 @@ class MvCompGlobalController extends Controller
             'f_id' => $request->f_id,
             'code' => $request->code,
             'libelle' => $request->libelle,
-            'm_credit_global' => $request->m_credit_global,
+            'm_credit_total' => $request->m_credit_total,
           ]);
    
            return response()->json([
@@ -39,7 +39,7 @@ class MvCompGlobalController extends Controller
             $mv_comptable_global->f_id = $request->f_id;
             $mv_comptable_global->code = $request->code;
             $mv_comptable_global->libelle = $request->libelle;
-            $mv_comptable_global->m_credit_global = $request->m_credit_global;
+            $mv_comptable_global->m_credit_total = $request->m_credit_total;
             $mv_comptable_global->save();
             return response()->json([
                 'success' => true,

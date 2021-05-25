@@ -70,7 +70,7 @@ class MvComptableController extends Controller
     }
     public function getMvComptable(Request $request)
     {
-        $mv_global = Mv_comptable::where('mv_comp_global',$request->id)->first();
+        $mv_global = Mv_comptable::where('mv_comp_global',$request->id)->get();
         return response()->json([
             'success' => true,
             'mv_global' => $mv_global,

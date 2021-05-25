@@ -16,5 +16,6 @@ class Mv_comptable extends Model
         'libelle',
         'm_debit',
         'm_credit',
+        'mv_comp_global',
     ];
 }
