@@ -9,6 +9,7 @@ use App\Http\Controllers\Api\FolderComptableController;
 use App\Http\Controllers\Api\BureauComptableController;
 use App\Http\Controllers\Api\MessageController;
 use App\Http\Controllers\Api\MvCompGlobalController;
+use App\Http\Controllers\Api\OffreController;
 
 
 /*
@@ -53,6 +54,12 @@ Route::post('mv-comptable-global/delete',[App\Http\Controllers\Api\MvCompGlobalC
 Route::post('get-mv-comptable-global',[App\Http\Controllers\Api\MvCompGlobalController::class, 'getById']);
 
 
+// Offre
+Route::get('offre',[App\Http\Controllers\Api\OffreController::class, 'index']);
+Route::post('offre/create',[App\Http\Controllers\Api\OffreController::class, 'create']);
+Route::post('offre/update',[App\Http\Controllers\Api\OffreController::class, 'update']);
+Route::post('offre/delete',[App\Http\Controllers\Api\OffreController::class, 'delete']);
+Route::post('get-offre',[App\Http\Controllers\Api\OffreController::class, 'getById']);
 
 // Folder Comptable
 Route::get('folder-comptable',[App\Http\Controllers\Api\FolderComptableController::class, 'index']);

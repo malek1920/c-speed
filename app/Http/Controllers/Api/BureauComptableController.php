@@ -64,11 +64,11 @@ class BureauComptableController extends Controller
         ]);
     }
     public function listeClient(Request $request)
-+    {
-+        $users = User::where('role',0)->get();
-+        return response()->json([
-+            'success' => true,
-+            'users' => $users, 
-+        ]);
-+    }
+      {
+        $users = User::where('role',0)->get();
+        return response()->json([
+            'success' => true,
+            'users' => $users, 
+        ]);
+    }
 }
