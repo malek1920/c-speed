@@ -17,11 +17,11 @@ class MessageController extends Controller
     {
         $email = User::find($request->id);
          $transport = (new Swift_SmtpTransport('smtp.gmail.com', '587', 'tls'))
-            ->setUsername('example@gmail.com')
-            ->setPassword('example');
+            ->setUsername('kachroudisamira0@gmail.com')
+            ->setPassword('DaD 25-4-97');
         $mailer    = new Swift_Mailer($transport);
         $message   = (new Swift_Message($request->subject))
-            ->setFrom('example@gmail.com', 'example')
+            ->setFrom('kachroudisamira0@gmail.com', 'DaD 25-4-97')
             ->setTo($email->email)
             ->setBody($request->message);
           
