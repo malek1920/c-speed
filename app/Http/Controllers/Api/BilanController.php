@@ -22,10 +22,7 @@ class BilanController extends Controller
             'code' => $request->code,
             'mv_comptable_id' => $request->mv_comptable_id,
             'nom' => $request->nom,
-            'actif' => $request->actif,
-            'passif' => $request->passif,
-            'm_actif' => $request->m_actif,
-            'm_passif' => $request->m_passif,
+            'etat' => $request->etat, 
           ]);
    
            return response()->json([
@@ -40,10 +37,7 @@ class BilanController extends Controller
         $bilan->code = $request->code;
         $bilan->mv_comptable_id = $request->mv_comptable_id;
         $bilan->nom = $request->nom;
-        $bilan->actif = $request->actif;
-        $bilan->passif = $request->passif;
-        $bilan->m_actif = $request->m_actif;
-        $bilan->m_passif = $request->m_passif;
+        $bilan->etat = $request->etat; 
         $bilan->save();
         return response()->json([
             'success' => true,

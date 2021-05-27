@@ -13,9 +13,6 @@ class Bilan extends Model
         'code',
         'mv_comptable_id',
         'nom',
-        'actif',
-        'passif',
-        'm_actif',
-        'm_passif',
+        'etat',
     ];
 }
