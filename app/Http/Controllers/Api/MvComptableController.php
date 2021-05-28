@@ -23,7 +23,8 @@ class MvComptableController extends Controller
             'f_id' => $request->f_id,
             'mv_comp_global' => $request->mv_comp_global,
             'code' => $request->code,
-            'libelle' => $request->libelle,
+            'libelle_debit' => $request->libelle_debit,
+            'libelle_credit' => $request->libelle_credit,
             'm_debit' => $request->	m_debit,
             'm_credit' => $request->m_credit,
           ]);
@@ -41,7 +42,8 @@ class MvComptableController extends Controller
             $mv_comptable->f_id = $request->f_id;
             $mv_comptable->mv_comp_global = $request->mv_comp_global;
             $mv_comptable->code = $request->code;
-            $mv_comptable->libelle = $request->libelle;
+            $mv_comptable->libelle_debit = $request->libelle_debit;
+            $mv_comptable->libelle_credit = $request->libelle_credit;
             $mv_comptable->m_debit = $request->m_debit;
             $mv_comptable->m_credit = $request->m_credit;
             $mv_comptable->save();
